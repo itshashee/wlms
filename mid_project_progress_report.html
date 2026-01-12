@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Project Progress Report: Web-Based Library Management System (WLMS)</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .header-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+
+        .header-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .status-complete {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Project Progress Report: Web-Based Library Management System (WLMS)</h1>
+
+    <div class="header-info">
+        <p><strong>Course:</strong> CSE3292 - Software Development III: Web Programming</p>
+        <p><strong>Date of Submission:</strong> 2026-01-12</p>
+        <p><strong>Group ID:</strong> 13</p>
+        <p><strong>Group Members:</strong></p>
+        <ul>
+            <li>1. Mst.Tisma Hossain - 42230200729</li>
+            <li>2. Sadika afrin tumpa - 42230200745</li>
+            <li>3. Md. Asraful Islam - 42230101580</li>
+        </ul>
+    </div>
+
+    <h2>1. Project Overview and Current Status</h2>
+
+    <h3>1.1. Project Summary</h3>
+    <p><strong>Goal:</strong> To develop a professional, web-based software solution for managing library resources,
+        automating user circulation, and tracking book availability in real-time using a simulated client-server
+        architecture.</p>
+    <p><strong>Technologies Used:</strong> Vite, Vanilla JavaScript (ES6 Modules), CSS3 (Glassmorphism Design),
+        LocalStorage (Simulated Database).</p>
+    <p><strong>Current Completion Status:</strong> Approximately 90% complete.</p>
+    <p><strong>High-Level Status Statement:</strong> All foundational SRS requirements including User Management, Book
+        Catalog, and Loan Processing are fully implemented. The system successfully simulates a backend using
+        LocalStorage, and we are currently finalizing the UI polish and preparing for final documentation.</p>
+
+    <h3>1.2. Progress Against Schedule</h3>
+    <p><strong>Status:</strong> Ahead of Schedule</p>
+    <p><strong>Reason for Deviation:</strong> Rapid development cycle enabled by Vite and the decision to use a
+        simulated backend (LocalStorage) allowing for faster iteration on frontend logic without waiting for complex
+        server setups.</p>
+
+    <h2>2. Detailed Development Progress</h2>
+
+    <h3>2.1. Backend and Database Implementation (Simulated)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Description of Functionality</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Database Schema</td>
+                <td>Key collections (wlms_users, wlms_books, wlms_loans) designed and implemented in LocalStorage.</td>
+                <td class="status-complete">Complete</td>
+            </tr>
+            <tr>
+                <td>Authentication Module</td>
+                <td>User registration, Login (mocked security), and Role-Based Access Control (Admin/Student).</td>
+                <td class="status-complete">Complete</td>
+            </tr>
+            <tr>
+                <td>Data CRUD APIs</td>
+                <td>Service layer (BookService, LoanService) handling business logic and data persistence.</td>
+                <td class="status-complete">Complete</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2.2. Key Features Implementation</h3>
+    <p>We have successfully implemented the following core library features:</p>
+    <ol>
+        <li><strong>Book Issues and Return</strong>:
+            <ul>
+                <li><strong>Functionality:</strong> Admins can issue books to registered students and mark them as
+                    returned.</li>
+                <li><strong>Implementation:</strong> The <code>LoanService</code> handles the creation of loan records
+                    with timestamps. Usage is tracked in the "Loans" tab of the Admin Dashboard.</li>
+            </ul>
+        </li>
+        <li><strong>Track Book Availability</strong>:
+            <ul>
+                <li><strong>Functionality:</strong> Real-time tracking of stock vs. available copies.</li>
+                <li><strong>Implementation:</strong> When a book is issued, its <code>available</code> count is legally
+                    decremented. Development ensures that a book cannot be issued if <code>available &lt;= 0</code>.
+                </li>
+            </ul>
+        </li>
+        <li><strong>Most Borrowed Reports</strong>:
+            <ul>
+                <li><strong>Functionality:</strong> A statistical widget on the Admin Dashboard showing the most popular
+                    books.</li>
+                <li><strong>Implementation:</strong> Based on the global <code>issues</code> count stored in the book
+                    object, sorted and displayed in a dedicated table.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>2.3. Frontend Implementation</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Description of UI/UX</th>
+                <th>Integration Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Login/Registration Pages</td>
+                <td>Completed forms with validation and state management via AuthPage.js.</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Main Dashboard/Home Page</td>
+                <td>Role-specific views: Admin Dashboard for management, Student Dashboard for browsing.</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Data Entry/Creation Form</td>
+                <td>"Add New Book" form with validation for Admins.</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Navigation/Layout</td>
+                <td>Responsive Sidebar navigation and dynamic view switching (main.js routing).</td>
+                <td class="status-complete">Complete</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Verification and Testing</h2>
+
+    <h3>3.1. Testing Summary</h3>
+    <p><strong>Unit Tests:</strong> 0% code coverage. Testing has been primarily manual due to the project scope and
+        architecture.</p>
+    <p><strong>Integration Tests:</strong> Successfully tested the flow from User Registration -> Login -> Book Browse
+        -> Issue Book -> Admin Return.</p>
+    <p><strong>Example Successful Test Case:</strong></p>
+    <ul>
+        <li><strong>Scenario:</strong> Student borrows a book.</li>
+        <li><strong>Steps:</strong>
+            <ol>
+                <li>Student logs in and clicks "Issue" on "Clean Code" (Availability: 3).</li>
+                <li>LoanService verifies stock and creates a loan record.</li>
+                <li>Book availability is updated to 2.</li>
+                <li>Admin logs in and sees the active loan.</li>
+            </ol>
+        </li>
+        <li><strong>Result:</strong> The book count updates correctly across both dashboards. (Verified)</li>
+    </ul>
+
+    <h3>3.2. Identified Issues/Bugs</h3>
+    <ul>
+        <li><strong>Major Issue 1: Security Simulation.</strong> Passwords are stored using simple Base64
+            encoding.<br />
+            <em>Status: Resolved (By Design)</em> - As this is a simulation, true encryption was out of scope.
+        </li>
+        <li><strong>Major Issue 2: Browser Refresh Reset.</strong><br />
+            <em>Status: Resolved</em> - Implemented localStorage persistence so data survives page reloads.
+        </li>
+    </ul>
+
+    <h2>4. Technical Challenges and Solutions</h2>
+
+    <h3>4.1. Challenge 1: Simulating Relational Data in NoSQL Storage</h3>
+    <p><strong>Description:</strong> LocalStorage is a key-value store, making it difficult to perform "JOIN"
+        operations.</p>
+    <p><strong>Solution Implemented:</strong> Created a Service Layer (LoanService.js) that manually fetches related IDs
+        and merges data before passing to View.</p>
+
+    <h3>4.2. Challenge 2: Client-Side Routing in Vanilla JS</h3>
+    <p><strong>Description:</strong> Managing different views without a framework or page reloads.</p>
+    <p><strong>Solution Implemented:</strong> Built a lightweight custom event bus in main.js to trigger root-level
+        rendering based on simulated route changes.</p>
+
+    <h2>5. Work Plan and Next Steps</h2>
+
+    <h3>5.1. Remaining Tasks</h3>
+    <ul>
+        <li>Refine UI Styling for mobile tables.</li>
+        <li>Implement Search/Filter for Admin History.</li>
+        <li>Stricter Data Validation for inputs.</li>
+        <li>Final User Manual Documentation.</li>
+    </ul>
+
+    <h3>5.2. Proposed Timeline</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Task Group</th>
+                <th>Estimated Completion Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Core Feature Implementation</td>
+                <td>Completed (2026-01-10)</td>
+            </tr>
+            <tr>
+                <td>Testing and Bug Fixing</td>
+                <td>2026-01-14</td>
+            </tr>
+            <tr>
+                <td>Final Documentation/Deployment</td>
+                <td>2026-01-15</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
