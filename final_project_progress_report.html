@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project Report - WLMS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .title-page {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title-page p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .group-members {
+            margin: 30px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .status-pass {
+            color: green;
+            font-weight: bold;
+        }
+
+        .placeholder {
+            background-color: #eee;
+            padding: 20px;
+            text-align: center;
+            border: 2px dashed #aaa;
+            color: #777;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title-page">
+            <h1>FINAL PROJECT REPORT</h1>
+            <h2>Web-Based Library Management System (WLMS)</h2>
+            <p><strong>Course:</strong> CSE3292 Programming Language III - Web Programming</p>
+            <p><strong>Submission Date:</strong> 20th January 2026</p>
+
+            <div class="group-members">
+                <h3>Prepared by:</h3>
+                <ul>
+                    <li><strong>Mst.Tisma Hossain</strong> (ID: 42230200729)</li>
+                    <li><strong>Sadika afrin tumpa</strong> (ID: 42230200745)</li>
+                    <li><strong>Md. Asraful Islam</strong> (ID: 42230101580)</li>
+                </ul>
+            </div>
+
+            <p><strong>Group ID:</strong> 13</p>
+            <br>
+            <p><strong>Submitted to:</strong><br>
+                Md Intekhabul Hafiz<br>
+                Department of CSE<br>
+                Northern University, Bangladesh</p>
+        </div>
+
+        <hr>
+
+        <h2>1. Executive Summary</h2>
+        <h3>The Problem</h3>
+        <p>Traditional library management often relies on manual record-keeping or outdated legacy systems, leading to
+            inefficiencies in tracking book availability, managing student loans, and generating circulation reports.
+            Students often struggle to know which books are available without visiting the library physically.</p>
+
+        <h3>The Solution</h3>
+        <p>The Web-Based Library Management System (WLMS) is a modern, responsive web application designed to automate
+            and streamline these processes. It provides a centralized platform where specific roles (Admin and Student)
+            can interact with the library's resources. The system features real-time availability tracking, automated
+            loan processing, and instant reporting on borrowed books.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Role-Based Access Control (RBAC):</strong> Distinct dashboards for Admins (Management) and
+                Students (Browsing).</li>
+            <li><strong>Real-time Availability:</strong> Book stock updates instantly upon issue/return.</li>
+            <li><strong>Automated Loan Management:</strong> Seamless issuing and returning of books with validation.
+            </li>
+            <li><strong>Analytics:</strong> "Most Borrowed Books" reporting for administrative insights.</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        <p>The application is built using a modern <strong>Vanilla JavaScript</strong> stack powered by
+            <strong>Vite</strong> for rapid development. It utilizes <strong>CSS3</strong> for a responsive
+            Glassmorphism design and simulates a full backend architecture using <strong>LocalStorage</strong> for data
+            persistence, ensuring a functional offline-first experience.
+        </p>
+
+        <h2>2. Introduction</h2>
+        <h3>2.1 Project Purpose</h3>
+        <p>The primary purpose of WLMS is to digitize library operations, reducing manual errors and improving the user
+            experience for both librarians and students. It serves as a comprehensive academic project demonstrating
+            full-stack web development concepts including state management, asynchronous data handling, and client-side
+            routing.</p>
+
+        <h3>2.2 Target Audience</h3>
+        <ul>
+            <li><strong>Admins (Librarians):</strong> Need tools to manage inventory, issue books, and view reports.
+            </li>
+            <li><strong>Students:</strong> Need a user-friendly interface to browse the catalog and check book
+                availability.</li>
+        </ul>
+
+        <h2>3. System Requirements Specification</h2>
+        <h3>3.1 Functional Requirements (FR)</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Feature</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>FR-1</td>
+                <td>User Authentication</td>
+                <td>The system allows Users and Admins to log in with secure access control.</td>
+            </tr>
+            <tr>
+                <td>FR-2</td>
+                <td>Book Management (CRUD)</td>
+                <td>Admins can Add, Edit, and Delete books from the system catalog.</td>
+            </tr>
+            <tr>
+                <td>FR-3</td>
+                <td>Issue/Return System</td>
+                <td>Admins can check out books to students and check them back in, updating stock levels.</td>
+            </tr>
+            <tr>
+                <td>FR-4</td>
+                <td>Real-Time Availability</td>
+                <td>The system prevents issuing a book if stock key is <= 0.</td>
+            </tr>
+            <tr>
+                <td>FR-5</td>
+                <td>Dashboards</td>
+                <td>Specific tailored views for Admins (Tables/Forms) vs Students (Grid/List).</td>
+            </tr>
+        </table>
+
+        <h3>3.2 Non-Functional Requirements (NFR)</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Criteria</th>
+            </tr>
+            <tr>
+                <td>NFR-1</td>
+                <td>Performance</td>
+                <td>The application loads in under 1 second due to Vite's verified build optimization.</td>
+            </tr>
+            <tr>
+                <td>NFR-2</td>
+                <td>Responsiveness</td>
+                <td>UI adapts seamlessly to Desktop, Tablet, and Mobile screens using CSS Flexbox/Grid.</td>
+            </tr>
+            <tr>
+                <td>NFR-3</td>
+                <td>Data Persistence</td>
+                <td>Data remains intact after browser refresh using LocalStorage abstraction.</td>
+            </tr>
+            <tr>
+                <td>NFR-4</td>
+                <td>Usability</td>
+                <td>Intuitive navigation with clear visual cues (Glassmorphism UI).</td>
+            </tr>
+        </table>
+
+        <h2>4. System Design & Architecture</h2>
+        <h3>4.1 System Architecture Diagram</h3>
+        <p><em>(Conceptual 3-Tier Layered Architecture)</em></p>
+        <ol>
+            <li><strong>Presentation Layer (Frontend):</strong> HTML5, CSS3, JavaScript (ES6), Components (Auth,
+                Dashboards).</li>
+            <li><strong>Business Logic Layer (Services):</strong> AuthService, BookService, LoanService.</li>
+            <li><strong>Data Persistence Layer (Simulated DB):</strong> Browser LocalStorage.</li>
+        </ol>
+
+        <h3>4.2 Database Schema (Simulated ERD)</h3>
+        <ul>
+            <li><strong>wlms_users:</strong> id (PK), name, role, email.</li>
+            <li><strong>wlms_books:</strong> id (PK), title, author, category, totalStock, available.</li>
+            <li><strong>wlms_loans:</strong> id (PK), bookId (FK), userId (FK), issueDate, status.</li>
+        </ul>
+
+        <h3>4.3 API Design (Service Methods)</h3>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>BookService</td>
+                <td>getAllBooks()</td>
+                <td>Returns all book objects.</td>
+            </tr>
+            <tr>
+                <td>BookService</td>
+                <td>addBook(bookData)</td>
+                <td>Validates and saves a new book.</td>
+            </tr>
+            <tr>
+                <td>LoanService</td>
+                <td>issueBook(userId, bookId)</td>
+                <td>Decrements stock, creates loan record.</td>
+            </tr>
+            <tr>
+                <td>LoanService</td>
+                <td>returnBook(loanId)</td>
+                <td>Increments stock, closes loan record.</td>
+            </tr>
+        </table>
+
+        <h2>5. Implementation Details</h2>
+        <h3>5.1 Tech Stack</h3>
+        <ul>
+            <li><strong>Frontend:</strong> Vanilla JavaScript (ES Modules).</li>
+            <li><strong>Build Test:</strong> Vite.</li>
+            <li><strong>Styling:</strong> CSS3 (Variables, Flexbox, Glass effect).</li>
+            <li><strong>Data Store:</strong> Browser LocalStorage (Simulated Backend).</li>
+        </ul>
+
+        <h3>5.3 Challenges & Solutions</h3>
+        <p><strong>Challenge 1: Relational Data in Key-Value Store</strong><br>
+            <em>Issue:</em> LocalStorage cannot perform SQL JOINs.<br>
+            <em>Resolution:</em> Implemented a Service aggregator to "hydrate" IDs into full objects.
+        </p>
+
+        <p><strong>Challenge 2: State Management</strong><br>
+            <em>Issue:</em> Syncing UI on data change.<br>
+            <em>Resolution:</em> Built a custom Event Bus to dispatch <code>wlms:update</code> events.
+        </p>
+
+        <h2>6. Testing & Quality Assurance</h2>
+        <h3>6.1 Testing Strategy</h3>
+        <p>Manual Integration Testing of complete User Flows (Login -> Issue -> Return).</p>
+
+        <h3>6.2 Test Cases</h3>
+        <table>
+            <tr>
+                <th>Test ID</th>
+                <th>Scenario</th>
+                <th>Expected Result</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>TC-01</td>
+                <td>Admin Login</td>
+                <td>Redirect to Admin Dashboard</td>
+                <td class="status-pass">✅ Pass</td>
+            </tr>
+            <tr>
+                <td>TC-02</td>
+                <td>Add Book</td>
+                <td>Book appears in list</td>
+                <td class="status-pass">✅ Pass</td>
+            </tr>
+            <tr>
+                <td>TC-03</td>
+                <td>Issue Stock Check</td>
+                <td>Prevent issue if Stock = 0</td>
+                <td class="status-pass">✅ Pass</td>
+            </tr>
+            <tr>
+                <td>TC-04</td>
+                <td>Return Update</td>
+                <td>Stock count increases by 1.</td>
+                <td class="status-pass">✅ Pass</td>
+            </tr>
+        </table>
+
+        <h2>7. User Manual & Screenshots</h2>
+        <h4>Login Screen</h4>
+        <img src="./report_assets/login.PNG" alt="Login Screen"
+            style="width:100%; border: 1px solid #ddd; margin-bottom: 20px;">
+        <h4>Admin Dashboard</h4>
+        <img src="./report_assets/dashboard.PNG" alt="Admin Dashboard"
+            style="width:100%; border: 1px solid #ddd; margin-bottom: 20px;">
+
+        <h4>Book Management</h4>
+        <img src="./report_assets/books.PNG" alt="Book List"
+            style="width:100%; border: 1px solid #ddd; margin-bottom: 20px;">
+
+        <h2>8. Conclusion & Future Work</h2>
+        <p>The WLMS project successfully demonstrates a functional, responsive library system meeting all requirements
+            using a modern, lightweight stack.</p>
+        <p><strong>Future Work:</strong> Migration to real MongoDB backend, overdue fine calculation, and email
+            notifications.</p>
+
+        <h2>9. Video Demonstration</h2>
+        <div class="placeholder">
+            <strong>Video Link:</strong> [Google Drive Link Placeholder]
+            <br>
+            <small>(Upload to YouTube Unlisted or Google Drive)</small>
+        </div>
+
+        <h2>10. Source Code</h2>
+        <p><strong>GitHub Repository:</strong> <a
+                href="https://github.com/itshashee/wlms">https://github.com/itshashee/wlms</a></p>
+
+    </div>
+
+</body>
+
+</html>
