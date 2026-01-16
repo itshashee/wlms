@@ -214,7 +214,7 @@ The WLMS project successfully demonstrates a functional, responsive library syst
 
 ## 9. Video Demonstration
 
-**Video Link:** [Google Drive Link Placeholder]
+**Video Link:** [https://drive.google.com/file/d/1-b2l2H4bIxFA48w1lNGSg6xyqfpSZALs/view?usp=sharing]
 
 *(Instruction: Upload your 5-minute demo video to YouTube (Unlisted) or Google Drive and paste the link above.)*
 
