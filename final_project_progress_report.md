@@ -20,7 +20,7 @@ Northern University, Bangladesh
 
 ## Table of Contents
 
-1.  [Executive Summary](#executive-summary)
+
 2.  [Introduction](#introduction)
 3.  [System Requirements Specification](#system-requirements-specification)
 4.  [System Design & Architecture](#system-design--architecture)
@@ -30,27 +30,11 @@ Northern University, Bangladesh
 8.  [Conclusion & Future Work](#conclusion--future-work)
 9.  [Video Demonstration](#video-demonstration)
 10. [Source Code](#source-code)
+11. [Executive Summary](#executive-summary)
 
 ---
 
-## 1. Executive Summary
 
-### The Problem
-Traditional library management often relies on manual record-keeping or outdated legacy systems, leading to inefficiencies in tracking book availability, managing student loans, and generating circulation reports. Students often struggle to know which books are available without visiting the library physically.
-
-### The Solution
-The Web-Based Library Management System (WLMS) is a modern, responsive web application designed to automate and streamline these processes. It provides a centralized platform where specific roles (Admin and Student) can interact with the library's resources. The system features real-time availability tracking, automated loan processing, and instant reporting on borrowed books.
-
-### Key Features
-*   **Role-Based Access Control (RBAC):** Distinct dashboards for Admins (Management) and Students (Browsing).
-*   **Real-time Availability:** Book stock updates instantly upon issue/return.
-*   **Automated Loan Management:** Seamless issuing and returning of books with validation.
-*   **Analytics:** "Most Borrowed Books" reporting for administrative insights.
-
-### Technical Implementation
-The application is built using a modern **Vanilla JavaScript** stack powered by **Vite** for rapid development. It utilizes **CSS3** for a responsive Glassmorphism design and simulates a full backend architecture using **LocalStorage** for data persistence, ensuring a functional offline-first experience.
-
----
 
 ## 2. Introduction
 
@@ -229,3 +213,22 @@ The WLMS project successfully demonstrates a functional, responsive library syst
 2.  Run `npm install` to install dependencies.
 3.  Run `npm run dev` to start the local server.
 4.  Open browser at `http://localhost:5173`.
+
+---
+
+## 11. Executive Summary
+
+### The Problem
+Traditional library management often relies on manual record-keeping or outdated legacy systems, leading to inefficiencies in tracking book availability, managing student loans, and generating circulation reports. Students often struggle to know which books are available without visiting the library physically.
+
+### The Solution
+The Web-Based Library Management System (WLMS) is a modern, responsive web application designed to automate and streamline these processes. It provides a centralized platform where specific roles (Admin and Student) can interact with the library's resources. The system features real-time availability tracking, automated loan processing, and instant reporting on borrowed books.
+
+### Key Features
+*   **Role-Based Access Control (RBAC):** Distinct dashboards for Admins (Management) and Students (Browsing).
+*   **Real-time Availability:** Book stock updates instantly upon issue/return.
+*   **Automated Loan Management:** Seamless issuing and returning of books with validation.
+*   **Analytics:** "Most Borrowed Books" reporting for administrative insights.
+
+### Technical Implementation
+The application is built using a modern **Vanilla JavaScript** stack powered by **Vite** for rapid development. It utilizes **CSS3** for a responsive Glassmorphism design and simulates a full backend architecture using **LocalStorage** for data persistence, ensuring a functional offline-first experience.
